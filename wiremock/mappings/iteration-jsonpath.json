@@ -6,7 +6,7 @@
   },
   "response": {
     "status": 200,
-    "bodyFileName": "iteration-jsonpath.json",
+    "bodyFileName": "iteration-jsonpath-response.json",
     "transformers": [
       "response-template"
     ],
