@@ -1,0 +1,12 @@
+{
+  "user": "User1", 
+  "orders": [ 
+    {{#each (jsonPath request.body '$.orders') as |order|}} 
+      {
+        "id": "{{order.id}}", 
+        "status": "In Progress", 
+        "shipping": "Pending"
+      } {{#not @last}},{{/not}}  
+    {{/each}} 
+  ]
+}
