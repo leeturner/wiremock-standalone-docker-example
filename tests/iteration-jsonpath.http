@@ -18,3 +18,20 @@ Content-Type: application/json
     }
   ]
 }
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("Response content-type is json", function() {
+        const type = response.contentType.mimeType;
+        client.assert(type === "application/json", "Expected 'application/json' but received '" + type + "'");
+    });
+    
+    // make sure we have the correct number of orders in the response to validate we iterated over the request correctly
+    client.test("We have the correct number of orders in the response", function () {
+        const orders = response.body.orders;
+        client.assert(orders.length === 3, "Expected 3 orders but received '" + orders.length + "'");
+    })
+%}
