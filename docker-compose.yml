@@ -1,0 +1,12 @@
+version: "3"
+services:
+  wiremock:
+    image: "wiremock/wiremock:nightly"
+    ports:
+      - "8080:8080"
+    container_name: wiremock
+    volumes:
+      - ./wiremock/__files:/home/wiremock/__files
+      - ./wiremock/mappings:/home/wiremock/mappings
+      - ./wiremock/extensions:/var/wiremock/extensions
+    entrypoint: [ "/docker-entrypoint.sh", "--verbose" ]
