@@ -1,17 +1,17 @@
 {
-  "name" : "orders",
-  "request" : {
-    "url" : "/orders",
-    "method" : "GET"
+  "name": "orders",
+  "request": {
+    "url": "/orders",
+    "method": "GET"
   },
   "response": {
     "status": 200,
     "bodyFileName": "iteration-jsonpath-response.json",
-    "transformers": [
-      "response-template"
-    ],
     "headers": {
       "Content-Type": "application/json"
-    }
+    },
+    "transformers": [
+      "response-template"
+    ]
   }
 }
