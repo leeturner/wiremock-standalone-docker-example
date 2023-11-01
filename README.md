@@ -45,7 +45,18 @@ verbose:                      true
 extensions:                   response-template,webhook
 ```
 
+### Docker Compose
+
+This repository contains a docker compose file to start up the wiremock nightly container with the same directory 
+mappings as the `start.sh` script.  To use the docker compose file simply run the following command in the root
+directory of the repository:
+
+```shell
+docker compose up
+```
+
 ## Testing Wiremock Request/Response
+
 The `tests` folder contains a number of intellij http files that can be used to test the requests and responses from 
 the wiremock mappings. The `tests` folder contains a [`README.md`](tests/README.md) file that explains how to use the intellij http files.
 
