@@ -1,0 +1,28 @@
+GET http://localhost:8080/parse-increment-date
+Content-Type: application/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cor="http://corporate.webservice.com/"
+                  xmlns:java="java:com.webservice.corporate">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <cor:DateService>
+            <cor:reportBean>
+                <java:ReportBean>
+                    <java:ParamName>Date</java:ParamName>
+                    <java:ParamValue>21-Oct-2020</java:ParamValue>
+                </java:ReportBean>
+            </cor:reportBean>
+        </cor:DateService>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("Response content-type is xml", function() {
+        const type = response.contentType.mimeType;
+        client.assert(type === "application/xml", "Expected 'application/xml' but received '" + type + "'");
+    });
+%}

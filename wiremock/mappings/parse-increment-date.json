@@ -1,0 +1,17 @@
+{
+  "name": "parse-increment-date",
+  "request": {
+    "url": "/parse-increment-date",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "parse-increment-date.xml",
+    "headers": {
+      "Content-Type": "application/xml"
+    },
+    "transformers": [
+      "response-template"
+    ]
+  }
+}

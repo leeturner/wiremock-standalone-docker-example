@@ -1,0 +1,6 @@
+{{#assign 'aDate'}} {{soapXPath request.body '/DateService/reportBean/ReportBean/ParamValue/text()'}} {{/assign}}
+<response>
+    <dateFromRequest>{{aDate}}</dateFromRequest>
+    <dateIncrementedBy1Day>{{date (parseDate aDate format="dd-MMM-yyyy") offset='1 days'}}</dateIncrementedBy1Day>
+    <now>{{now}}</now>
+</response>
