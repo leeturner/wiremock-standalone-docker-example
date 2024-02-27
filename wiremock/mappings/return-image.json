@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/test/img"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "wiremock.png"
+  },
+  "metadata": {
+    "name": "file-stub"
+  }
+}
