@@ -23,4 +23,4 @@ docker run -it --rm \
   -v "$LOCAL_MAPPINGS_DIR":$DOCKER_MAPPINGS_DIR \
   -v "$LOCAL_FILES_DIR":$DOCKER_FILES_DIR \
   wiremock/wiremock:nightly \
-  --port "$PORT" --verbose 
+  --port "$PORT" --verbose --extensions org.wiremock.RandomExtension
