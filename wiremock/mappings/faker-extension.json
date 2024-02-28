@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/faker"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "name": "{{ random 'Name.fullName' }}",
+      "address": "{{ random 'Address.fullAddress' }}"
+    },
+    "transformers": ["response-template"]
+  }
+}
