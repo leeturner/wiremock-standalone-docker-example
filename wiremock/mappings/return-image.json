@@ -5,7 +5,10 @@
   },
   "response": {
     "status": 200,
-    "bodyFileName": "wiremock.png"
+    "bodyFileName": "wiremock.png",
+    "transformerParameters": {
+      "disableBodyFileTemplating": true
+    }
   },
   "metadata": {
     "name": "file-stub"
