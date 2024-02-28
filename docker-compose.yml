@@ -9,4 +9,4 @@ services:
       - ./wiremock/__files:/home/wiremock/__files
       - ./wiremock/mappings:/home/wiremock/mappings
       - ./wiremock/extensions:/var/wiremock/extensions
-    entrypoint: [ "/docker-entrypoint.sh", "--verbose", "--extensions", "org.wiremock.RandomExtension" ]
+    entrypoint: [ "/docker-entrypoint.sh", "--verbose" ]
