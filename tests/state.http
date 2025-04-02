@@ -1,0 +1,23 @@
+### POST payload to record state for /1
+POST localhost:8080/post/1
+Content-Type: application/json
+
+{
+  "id": "1"
+}
+
+### POST payload to record state for /2
+POST localhost:8080/post/2
+Content-Type: application/json
+
+{
+  "id": "2"
+}
+
+### GET /1 should only match if POST above has been done firse
+GET localhost:8080/get/1
+
+### GET /2 should only match if POST above has been done firse
+GET localhost:8080/get/2
+
+###

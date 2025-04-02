@@ -1,0 +1,74 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/post/1"
+      },
+      "response": {
+        "status": 200
+      },
+      "serveEventListeners": [
+        {
+          "name": "recordState",
+          "parameters": {
+            "context": "{{jsonPath request.body '$.id'}}",
+            "state": {
+              "id": "{{jsonPath request.body '$.id'}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/get/1",
+        "customMatcher": {
+          "name": "state-matcher",
+          "parameters": {
+            "hasContext": "1"
+          }
+        }
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/post/2"
+      }, 
+      "response": {
+        "status": 200
+      },
+      "serveEventListeners": [
+        {
+          "name": "recordState",
+          "parameters": {
+            "context": "{{jsonPath request.body '$.id'}}",
+            "state": {
+              "id": "{{jsonPath request.body '$.id'}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/get/2",
+        "customMatcher": {
+          "name": "state-matcher",
+          "parameters": {
+            "hasContext": "2"
+          }
+        }
+      },
+      "response": {
+        "status": 200
+      }
+    }
+  ]
+}
