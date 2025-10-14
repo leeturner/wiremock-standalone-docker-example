@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/search"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "search-response-e.txt",
+    "transformers": [ "response-template" ]
+  }
+}

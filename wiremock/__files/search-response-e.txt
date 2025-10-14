@@ -1,0 +1,3 @@
+{{val request.query.[size] assign='page-size' default=20}}
+
+Page size: {{page-size}}

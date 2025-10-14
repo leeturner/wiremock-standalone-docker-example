@@ -1,0 +1,11 @@
+###
+GET http://localhost:8080/search
+
+###
+GET http://localhost:8080/search?a=1&b=2&c=3
+
+###
+GET http://localhost:8080/search?size=15
+
+###
+GET http://localhost:8080/search?a=1&b=2&c=3&size=10
