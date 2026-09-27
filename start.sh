@@ -5,12 +5,15 @@ PORT=${1:-8080}
 
 LOCAL_EXTENSIONS_DIR=$PWD/wiremock/extensions
 LOCAL_MAPPINGS_DIR=$PWD/wiremock/mappings
+LOCAL_MESSAGE_MAPPINGS_DIR=$PWD/wiremock/message-mappings
 LOCAL_FILES_DIR=$PWD/wiremock/__files
 DOCKER_EXTENSIONS_DIR=/var/wiremock/extensions
 DOCKER_MAPPINGS_DIR=/home/wiremock/mappings
+DOCKER_MESSAGE_MAPPINGS_DIR=/home/wiremock/message-mappings
 DOCKER_FILES_DIR=/home/wiremock/__files
 
 echo "Mounting local mappings directory: $LOCAL_MAPPINGS_DIR to docker mappings directory: $DOCKER_MAPPINGS_DIR"
+echo "Mounting local message mappings directory: $LOCAL_MESSAGE_MAPPINGS_DIR to docker message mappings directory: $DOCKER_MESSAGE_MAPPINGS_DIR"
 echo "Mounting local files directory: $LOCAL_FILES_DIR to docker files directory: $DOCKER_FILES_DIR"
 echo "Mounting local extensions directory: $LOCAL_EXTENSIONS_DIR to docker extensions directory: $DOCKER_EXTENSIONS_DIR"
 echo ""
@@ -21,6 +24,7 @@ docker run -it --rm \
   --name wiremock \
   -v "$LOCAL_EXTENSIONS_DIR":$DOCKER_EXTENSIONS_DIR \
   -v "$LOCAL_MAPPINGS_DIR":$DOCKER_MAPPINGS_DIR \
+  -v "$LOCAL_MESSAGE_MAPPINGS_DIR":$DOCKER_MESSAGE_MAPPINGS_DIR \
   -v "$LOCAL_FILES_DIR":$DOCKER_FILES_DIR \
   wiremock/wiremock:nightly \
   --port "$PORT" --verbose 

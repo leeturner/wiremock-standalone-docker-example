@@ -1,0 +1,229 @@
+{
+  "messageMappings": [
+    {
+      "name": "Departures tick 1",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "aaaaaaaa-0000-4000-8000-000000000001"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <tbody id=\"departures-body\"><tr><td class=\"c-time\">10:42</td><td class=\"c-dest\">London Waterloo</td><td class=\"c-plat\">2</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">10:47</td><td class=\"c-dest\">Reading</td><td class=\"c-plat\">4</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">10:53</td><td class=\"c-dest\">Brighton</td><td class=\"c-plat\">6</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:01</td><td class=\"c-dest\">Southampton Central</td><td class=\"c-plat\">3</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:05</td><td class=\"c-dest\">Guildford</td><td class=\"c-plat\">1</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr></tbody>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        },
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <div id=\"ticker\"><span class=\"ticker-text\">Welcome to Clapham Junction. Please mind the gap between the train and the platform.</span></div>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Departures tick 2",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "aaaaaaaa-0000-4000-8000-000000000002"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <tbody id=\"departures-body\"><tr><td class=\"c-time\">10:42</td><td class=\"c-dest\">London Waterloo</td><td class=\"c-plat\">2</td><td class=\"c-status\"><span class=\"status status-boarding\">BOARDING</span></td></tr><tr><td class=\"c-time\">10:47</td><td class=\"c-dest\">Reading</td><td class=\"c-plat\">4</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">10:53</td><td class=\"c-dest\">Brighton</td><td class=\"c-plat\">6</td><td class=\"c-status\"><span class=\"status status-delayed\">DELAYED 5 MIN</span></td></tr><tr><td class=\"c-time\">11:01</td><td class=\"c-dest\">Southampton Central</td><td class=\"c-plat\">3</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:05</td><td class=\"c-dest\">Guildford</td><td class=\"c-plat\">1</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr></tbody>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        },
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <div id=\"ticker\"><span class=\"ticker-text\">The next train to depart from Platform 2 is the 10:42 to London Waterloo.</span></div>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Departures tick 3",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "aaaaaaaa-0000-4000-8000-000000000003"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <tbody id=\"departures-body\"><tr><td class=\"c-time\">10:42</td><td class=\"c-dest\">London Waterloo</td><td class=\"c-plat\">2</td><td class=\"c-status\"><span class=\"status status-departed\">DEPARTED</span></td></tr><tr><td class=\"c-time\">10:47</td><td class=\"c-dest\">Reading</td><td class=\"c-plat\">4</td><td class=\"c-status\"><span class=\"status status-boarding\">BOARDING</span></td></tr><tr><td class=\"c-time\">10:53</td><td class=\"c-dest\">Brighton</td><td class=\"c-plat\">6</td><td class=\"c-status\"><span class=\"status status-delayed\">DELAYED 10 MIN</span></td></tr><tr><td class=\"c-time\">11:01</td><td class=\"c-dest\">Southampton Central</td><td class=\"c-plat\">3</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:12</td><td class=\"c-dest\">Portsmouth Harbour</td><td class=\"c-plat\">5</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr></tbody>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        },
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <div id=\"ticker\"><span class=\"ticker-text\">Platform alteration: the delayed 10:53 service to Brighton will now depart from Platform 6.</span></div>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Departures tick 4",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "aaaaaaaa-0000-4000-8000-000000000004"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <tbody id=\"departures-body\"><tr><td class=\"c-time\">10:47</td><td class=\"c-dest\">Reading</td><td class=\"c-plat\">4</td><td class=\"c-status\"><span class=\"status status-departed\">DEPARTED</span></td></tr><tr><td class=\"c-time\">10:53</td><td class=\"c-dest\">Brighton</td><td class=\"c-plat\">6</td><td class=\"c-status\"><span class=\"status status-boarding\">BOARDING</span></td></tr><tr><td class=\"c-time\">11:01</td><td class=\"c-dest\">Southampton Central</td><td class=\"c-plat\">3</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:12</td><td class=\"c-dest\">Portsmouth Harbour</td><td class=\"c-plat\">5</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:18</td><td class=\"c-dest\">London Victoria</td><td class=\"c-plat\">2</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr></tbody>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        },
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <div id=\"ticker\"><span class=\"ticker-text\">Please keep your belongings with you at all times.</span></div>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Departures tick 5",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "aaaaaaaa-0000-4000-8000-000000000005"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <tbody id=\"departures-body\"><tr><td class=\"c-time\">10:53</td><td class=\"c-dest\">Brighton</td><td class=\"c-plat\">6</td><td class=\"c-status\"><span class=\"status status-departed\">DEPARTED</span></td></tr><tr><td class=\"c-time\">11:01</td><td class=\"c-dest\">Southampton Central</td><td class=\"c-plat\">3</td><td class=\"c-status\"><span class=\"status status-boarding\">BOARDING</span></td></tr><tr><td class=\"c-time\">11:12</td><td class=\"c-dest\">Portsmouth Harbour</td><td class=\"c-plat\">5</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:18</td><td class=\"c-dest\">London Victoria</td><td class=\"c-plat\">2</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr><tr><td class=\"c-time\">11:24</td><td class=\"c-dest\">Reading</td><td class=\"c-plat\">4</td><td class=\"c-status\"><span class=\"status status-ontime\">ON TIME</span></td></tr></tbody>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        },
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "elements <div id=\"ticker\"><span class=\"ticker-text\">The 11:01 service to Southampton Central is now boarding at Platform 3.</span></div>"
+            },
+            "headers": {
+              "event": "datastar-patch-elements"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/trains/events"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

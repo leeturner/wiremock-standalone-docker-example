@@ -1,0 +1,99 @@
+{
+  "mappings": [
+    {
+      "name": "Train board - web page",
+      "request": {
+        "method": "GET",
+        "urlPath": "/train-board"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "train-board/index.html",
+        "headers": {
+          "Content-Type": "text/html; charset=UTF-8"
+        }
+      }
+    },
+    {
+      "name": "Train board - open SSE channel",
+      "request": {
+        "method": "GET",
+        "urlPath": "/trains/events"
+      },
+      "response": {
+        "status": 200,
+        "openSseChannel": true
+      }
+    },
+    {
+      "name": "Train board - tick 1",
+      "id": "aaaaaaaa-0000-4000-8000-000000000001",
+      "request": {
+        "method": "GET",
+        "urlPath": "/trains/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "Clapham Junction departures",
+      "requiredScenarioState": "Started",
+      "newScenarioState": "Tick 2"
+    },
+    {
+      "name": "Train board - tick 2",
+      "id": "aaaaaaaa-0000-4000-8000-000000000002",
+      "request": {
+        "method": "GET",
+        "urlPath": "/trains/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "Clapham Junction departures",
+      "requiredScenarioState": "Tick 2",
+      "newScenarioState": "Tick 3"
+    },
+    {
+      "name": "Train board - tick 3",
+      "id": "aaaaaaaa-0000-4000-8000-000000000003",
+      "request": {
+        "method": "GET",
+        "urlPath": "/trains/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "Clapham Junction departures",
+      "requiredScenarioState": "Tick 3",
+      "newScenarioState": "Tick 4"
+    },
+    {
+      "name": "Train board - tick 4",
+      "id": "aaaaaaaa-0000-4000-8000-000000000004",
+      "request": {
+        "method": "GET",
+        "urlPath": "/trains/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "Clapham Junction departures",
+      "requiredScenarioState": "Tick 4",
+      "newScenarioState": "Tick 5"
+    },
+    {
+      "name": "Train board - tick 5",
+      "id": "aaaaaaaa-0000-4000-8000-000000000005",
+      "request": {
+        "method": "GET",
+        "urlPath": "/trains/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "Clapham Junction departures",
+      "requiredScenarioState": "Tick 5",
+      "newScenarioState": "Started"
+    }
+  ]
+}
