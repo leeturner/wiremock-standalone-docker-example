@@ -1,6 +1,6 @@
 # Example of running Wiremock Standalone in Docker
 
-This repo contains an example of using wiremock standalone running in docker. The example uses the `wiremock:nightly`
+This repo contains an example of using wiremock standalone running in docker. The example uses the `wiremock/wiremock:4.0.0-beta.40`
 image and maps the directories local to this repository the directories inside the image in the following way:
 
 * local mappings directory: `./wiremock/mappings` is mapped to docker mappings directory: `/home/wiremock/mappings`
@@ -47,7 +47,7 @@ extensions:                   response-template,webhook
 
 ### Docker Compose
 
-This repository contains a docker compose file to start up the wiremock nightly container with the same directory 
+This repository contains a docker compose file to start up the wiremock `4.0.0-beta.40` container with the same directory 
 mappings as the `start.sh` script.  To use the docker compose file simply run the following command in the root
 directory of the repository:
 
@@ -90,3 +90,33 @@ from the browser polling `/trains/tick`, not from WireMock itself.
 
 Start the stack with `docker compose up`, then open **http://localhost:8080/train-board** in a browser.
 
+
+## Big List of Naughty Strings example
+
+The [wiremock-blns-extension](https://github.com/leeturner/wiremock-blns-extension) adds a `naughtyString` template
+helper that returns strings from the [Big List of Naughty Strings](https://github.com/minimaxir/big-list-of-naughty-strings),
+which is handy for testing how a client copes with awkward input.
+
+How it's wired up:
+
+* `wiremock/extensions/wiremock-blns-extension-standalone-0.1.0.jar` is the standalone extension jar from
+  [Maven Central](https://central.sonatype.com/artifact/io.github.leeturner/wiremock-blns-extension-standalone).
+* `wiremock/mappings/blns.json` matches `GET /blns` and returns a JSON array containing one random naughty string from
+  each category, e.g.
+
+  ```json
+  [
+    { "category": "reserved-strings", "value": "true" },
+    { "category": "sql-injection", "value": "1;DROP TABLE users" },
+    ...
+  ]
+  ```
+
+The values are wrapped in `toJson` so quotes, control characters and escape codes still produce valid JSON. Other ways
+to call the helper:
+
+* `{{naughtyString}}`: a random string from the whole list
+* `{{naughtyString category='emoji'}}`: a random string from one category
+* `{{naughtyString index=42}}`: a fixed entry
+
+Start the stack with `docker compose up`, then call **http://localhost:8080/blns** (or use `tests/blns.http`).

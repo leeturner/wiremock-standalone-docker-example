@@ -26,5 +26,5 @@ docker run -it --rm \
   -v "$LOCAL_MAPPINGS_DIR":$DOCKER_MAPPINGS_DIR \
   -v "$LOCAL_MESSAGE_MAPPINGS_DIR":$DOCKER_MESSAGE_MAPPINGS_DIR \
   -v "$LOCAL_FILES_DIR":$DOCKER_FILES_DIR \
-  wiremock/wiremock:nightly \
+  wiremock/wiremock:4.0.0-beta.40 \
   --port "$PORT" --verbose 

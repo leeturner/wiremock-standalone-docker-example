@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/blns"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": "[\n{{#each (array 'reserved-strings' 'numeric-strings' 'special-characters' 'unicode-symbols' 'unicode-subscript-superscript-accents' 'quotation-marks' 'two-byte-characters' 'special-unicode-characters-union' 'changing-length-when-lowercased' 'japanese-emoticons' 'emoji' 'unicode-numbers' 'right-to-left-strings' 'ogham-text' 'trick-unicode' 'zalgo-text' 'unicode-upsidedown' 'unicode-font' 'script-injection' 'sql-injection' 'server-code-injection' 'command-injection-ruby' 'unwanted-interpolation' 'file-inclusion' 'known-cves-and-vulnerabilities' 'msdos-windows-special-filenames' 'scunthorpe-problem' 'human-injection' 'terminal-escape-codes' 'ios-vulnerabilities') as |category|}}  { \"category\": \"{{category}}\", \"value\": {{toJson (naughtyString category=category)}} }{{#unless @last}},{{/unless}}\n{{/each}}]",
+    "transformers": ["response-template"]
+  }
+}
