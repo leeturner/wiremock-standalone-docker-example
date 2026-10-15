@@ -1,7 +1,7 @@
 version: "3"
 services:
   wiremock:
-    image: "wiremock/wiremock:4.0.0-beta.39"
+    image: "wiremock/wiremock:4.0.0-beta.40"
     ports:
       - "8080:8080"
     container_name: wiremock
