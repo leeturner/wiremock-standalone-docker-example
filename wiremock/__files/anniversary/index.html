@@ -87,6 +87,32 @@
         size: 1.2, map: sprite, color: 0x6670a0, transparent: true, depthWrite: false })));
     }
 
+    // a glowing moon, far back so the camera drift gives it a little parallax
+    {
+      const c = document.createElement('canvas'); c.width = c.height = 256;
+      const g = c.getContext('2d');
+      const halo = g.createRadialGradient(128, 128, 90, 128, 128, 128);
+      halo.addColorStop(0, 'rgba(255,248,225,0.22)');
+      halo.addColorStop(1, 'rgba(255,248,225,0)');
+      g.fillStyle = halo; g.fillRect(0, 0, 256, 256);
+      const disc = g.createRadialGradient(110, 110, 10, 128, 128, 92);
+      disc.addColorStop(0, '#fffdf0');
+      disc.addColorStop(1, '#d6d0b8');
+      g.beginPath(); g.arc(128, 128, 92, 0, Math.PI * 2); g.fillStyle = disc; g.fill();
+      g.save(); g.clip();
+      g.fillStyle = 'rgba(120,112,92,0.4)';
+      for (const [x, y, r] of [[100, 95, 22], [150, 120, 14], [118, 160, 18], [165, 80, 9], [80, 140, 8], [145, 170, 7]]) {
+        g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+      }
+      g.restore();
+      const moon = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: new THREE.CanvasTexture(c), color: 0x6e6c66, transparent: true, depthWrite: false }));
+      moon.position.set(170, 95, -150);
+      moon.scale.setScalar(55);
+      moon.renderOrder = -1;
+      scene.add(moon);
+    }
+
     // ---------- particles ----------
     // One big ring buffer. Additive blending, so fading the colour to black fades the particle out.
     const MAX = 60000;
