@@ -1,0 +1,196 @@
+{
+  "mappings": [
+    {
+      "name": "Anniversary - web page",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "anniversary/index.html",
+        "headers": {
+          "Content-Type": "text/html; charset=UTF-8"
+        }
+      }
+    },
+    {
+      "name": "Anniversary - open SSE channel",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/events"
+      },
+      "response": {
+        "status": 200,
+        "openSseChannel": true
+      }
+    },
+    {
+      "name": "Fireworks tick 1 - opening peony",
+      "id": "cccccccc-0000-4000-8000-000000000001",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Started",
+      "newScenarioState": "Tick 2"
+    },
+    {
+      "name": "Fireworks tick 2 - golden willow",
+      "id": "cccccccc-0000-4000-8000-000000000002",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 2",
+      "newScenarioState": "Tick 3"
+    },
+    {
+      "name": "Fireworks tick 3 - peony and ring",
+      "id": "cccccccc-0000-4000-8000-000000000003",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 3",
+      "newScenarioState": "Tick 4"
+    },
+    {
+      "name": "Fireworks tick 4 - crackle and peony",
+      "id": "cccccccc-0000-4000-8000-000000000004",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 4",
+      "newScenarioState": "Tick 5"
+    },
+    {
+      "name": "Fireworks tick 5 - triple",
+      "id": "cccccccc-0000-4000-8000-000000000005",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 5",
+      "newScenarioState": "Tick 6"
+    },
+    {
+      "name": "Fireworks tick 6 - four shells",
+      "id": "cccccccc-0000-4000-8000-000000000006",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 6",
+      "newScenarioState": "Tick 7"
+    },
+    {
+      "name": "Fireworks tick 7 - five shells",
+      "id": "cccccccc-0000-4000-8000-000000000007",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 7",
+      "newScenarioState": "Tick 8"
+    },
+    {
+      "name": "Fireworks tick 8 - hold your breath",
+      "id": "cccccccc-0000-4000-8000-000000000008",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 8",
+      "newScenarioState": "Tick 9"
+    },
+    {
+      "name": "Fireworks tick 9 - the big THREE",
+      "id": "cccccccc-0000-4000-8000-000000000009",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 9",
+      "newScenarioState": "Tick 10"
+    },
+    {
+      "name": "Fireworks tick 10 - let it hang",
+      "id": "cccccccc-0000-4000-8000-000000000010",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 10",
+      "newScenarioState": "Tick 11"
+    },
+    {
+      "name": "Fireworks tick 11 - Happy 3 Year Anniversary",
+      "id": "cccccccc-0000-4000-8000-000000000011",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Tick 11",
+      "newScenarioState": "Finale"
+    },
+    {
+      "name": "Fireworks finale - keep them coming",
+      "id": "cccccccc-0000-4000-8000-000000000012",
+      "request": {
+        "method": "GET",
+        "urlPath": "/anniversary/tick"
+      },
+      "response": {
+        "status": 204
+      },
+      "scenarioName": "anniversary",
+      "requiredScenarioState": "Finale"
+    }
+  ]
+}

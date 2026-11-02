@@ -1,0 +1,12 @@
+### Rewind the fireworks scenario to the start
+PUT localhost:8080/__admin/scenarios/anniversary/state
+Content-Type: application/json
+
+{
+  "state": "Started"
+}
+
+### Fire the next tick (watch an open /anniversary page or curl -N localhost:8080/anniversary/events)
+GET localhost:8080/anniversary/tick
+
+###

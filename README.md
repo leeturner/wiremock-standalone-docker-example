@@ -91,6 +91,26 @@ from the browser polling `/trains/tick`, not from WireMock itself.
 Start the stack with `docker compose up`, then open **http://localhost:8080/train-board** in a browser.
 
 
+## Server-Sent Events example: anniversary fireworks
+
+A three.js fireworks display where every firework is launched by a WireMock stub over SSE. It builds up, bursts
+into a giant "3", then shows a "Happy 3 Year Anniversary" banner while the fireworks keep going.
+
+How it's wired up:
+
+* `wiremock/mappings/anniversary.json` serves the page at `GET /anniversary`, opens an SSE channel at
+  `GET /anniversary/events`, and defines `GET /anniversary/tick` as a scenario that steps through 11 ticks and
+  then stays in a `Finale` state forever.
+* `wiremock/message-mappings/anniversary-messages.json` sends a `fireworks` event (a JSON array of shells:
+  type, position, colour, launch delay) for each tick, and a `banner` event on tick 11. Positions and colours use
+  `{{randomInt}}` and the finale picks shell types with `{{pickRandom}}`, so every run is different but the
+  big moments always land on the same tick.
+* `wiremock/__files/anniversary/index.html` resets the scenario on load (so every reload is a fresh take), listens
+  with a plain `EventSource`, polls `/anniversary/tick` every 2 seconds, and renders whatever arrives.
+
+Start the stack with `docker compose up`, then open **http://localhost:8080/anniversary** in a browser.
+
+
 ## Big List of Naughty Strings example
 
 The [wiremock-blns-extension](https://github.com/leeturner/wiremock-blns-extension) adds a `naughtyString` template
