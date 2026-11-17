@@ -1,0 +1,166 @@
+{
+  "messageMappings": [
+    {
+      "name": "Fireworks tick 1 - opening peony",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "cccccccc-0000-4000-8000-000000000001"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "[{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0}]"
+            },
+            "headers": {
+              "event": "fireworks"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/anniversary/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fireworks tick 2 - peony and ring",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "cccccccc-0000-4000-8000-000000000002"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "[{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0},{\"type\":\"ring\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":800}]"
+            },
+            "headers": {
+              "event": "fireworks"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/anniversary/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fireworks tick 3 - triple",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "cccccccc-0000-4000-8000-000000000003"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "[{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0},{\"type\":\"willow\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":500},{\"type\":\"ring\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1000}]"
+            },
+            "headers": {
+              "event": "fireworks"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/anniversary/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fireworks tick 5 - the big THREE",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "cccccccc-0000-4000-8000-000000000005"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "[{\"type\":\"three\",\"x\":50,\"y\":52,\"hue\":45,\"delay\":0}]"
+            },
+            "headers": {
+              "event": "fireworks"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/anniversary/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fireworks tick 7 - after the THREE",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "cccccccc-0000-4000-8000-000000000007"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "[{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":600},{\"type\":\"ring\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1100},{\"type\":\"willow\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1600}]"
+            },
+            "headers": {
+              "event": "fireworks"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/anniversary/events"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fireworks finale - keep them coming",
+      "trigger": {
+        "type": "http-stub",
+        "stubId": "cccccccc-0000-4000-8000-000000000008"
+      },
+      "actions": [
+        {
+          "type": "send",
+          "message": {
+            "body": {
+              "data": "[{\"type\":\"{{pickRandom 'peony' 'willow' 'ring' 'crackle'}}\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0},{\"type\":\"{{pickRandom 'peony' 'willow' 'ring' 'crackle'}}\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":400},{\"type\":\"{{pickRandom 'peony' 'willow' 'ring' 'crackle'}}\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":900},{\"type\":\"{{pickRandom 'peony' 'willow' 'ring' 'crackle'}}\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1400}]"
+            },
+            "headers": {
+              "event": "fireworks"
+            }
+          },
+          "channelTarget": {
+            "type": "request-initiated",
+            "channelType": "sse",
+            "requestPattern": {
+              "urlPath": "/anniversary/events"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

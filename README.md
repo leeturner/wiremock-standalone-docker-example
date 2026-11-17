@@ -1,6 +1,6 @@
 # Example of running Wiremock Standalone in Docker
 
-This repo contains an example of using wiremock standalone running in docker. The example uses the `wiremock/wiremock:4.0.0-beta.40`
+This repo contains an example of using wiremock standalone running in docker. The example uses the `wiremock/wiremock:4.0.0-beta.44`
 image and maps the directories local to this repository the directories inside the image in the following way:
 
 * local mappings directory: `./wiremock/mappings` is mapped to docker mappings directory: `/home/wiremock/mappings`
@@ -47,7 +47,7 @@ extensions:                   response-template,webhook
 
 ### Docker Compose
 
-This repository contains a docker compose file to start up the wiremock `4.0.0-beta.40` container with the same directory 
+This repository contains a docker compose file to start up the wiremock `4.0.0-beta.44` container with the same directory 
 mappings as the `start.sh` script.  To use the docker compose file simply run the following command in the root
 directory of the repository:
 
@@ -89,6 +89,26 @@ another message) — there's no built-in "send every N seconds" scheduler. The 2
 from the browser polling `/trains/tick`, not from WireMock itself.
 
 Start the stack with `docker compose up`, then open **http://localhost:8080/train-board** in a browser.
+
+
+## Server-Sent Events example: anniversary fireworks
+
+A three.js fireworks display where every firework is launched by a WireMock stub over SSE. It builds up, bursts
+into a giant "3", then the fireworks keep going.
+
+How it's wired up:
+
+* `wiremock/mappings/anniversary.json` serves the page at `GET /anniversary`, opens an SSE channel at
+  `GET /anniversary/events`, and defines `GET /anniversary/tick` as a scenario that steps through 7 ticks and
+  then stays in a `Finale` state forever.
+* `wiremock/message-mappings/anniversary-messages.json` sends a `fireworks` event (a JSON array of shells:
+  type, position, colour, launch delay) for each tick. Positions and colours use
+  `{{randomInt}}` and the finale picks shell types with `{{pickRandom}}`, so every run is different but the
+  big moments always land on the same tick.
+* `wiremock/__files/anniversary/index.html` resets the scenario on load (so every reload is a fresh take), listens
+  with a plain `EventSource`, polls `/anniversary/tick` every 2 seconds, and renders whatever arrives.
+
+Start the stack with `docker compose up`, then open **http://localhost:8080/anniversary** in a browser.
 
 
 ## Big List of Naughty Strings example
