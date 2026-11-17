@@ -99,7 +99,7 @@ into a giant "3", then the fireworks keep going.
 How it's wired up:
 
 * `wiremock/mappings/anniversary.json` serves the page at `GET /anniversary`, opens an SSE channel at
-  `GET /anniversary/events`, and defines `GET /anniversary/tick` as a scenario that steps through 11 ticks and
+  `GET /anniversary/events`, and defines `GET /anniversary/tick` as a scenario that steps through 7 ticks and
   then stays in a `Finale` state forever.
 * `wiremock/message-mappings/anniversary-messages.json` sends a `fireworks` event (a JSON array of shells:
   type, position, colour, launch delay) for each tick. Positions and colours use

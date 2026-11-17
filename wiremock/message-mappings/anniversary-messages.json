@@ -28,37 +28,10 @@
       ]
     },
     {
-      "name": "Fireworks tick 2 - golden willow",
+      "name": "Fireworks tick 2 - peony and ring",
       "trigger": {
         "type": "http-stub",
         "stubId": "cccccccc-0000-4000-8000-000000000002"
-      },
-      "actions": [
-        {
-          "type": "send",
-          "message": {
-            "body": {
-              "data": "[{\"type\":\"willow\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0}]"
-            },
-            "headers": {
-              "event": "fireworks"
-            }
-          },
-          "channelTarget": {
-            "type": "request-initiated",
-            "channelType": "sse",
-            "requestPattern": {
-              "urlPath": "/anniversary/events"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Fireworks tick 3 - peony and ring",
-      "trigger": {
-        "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000003"
       },
       "actions": [
         {
@@ -82,37 +55,10 @@
       ]
     },
     {
-      "name": "Fireworks tick 4 - crackle and peony",
+      "name": "Fireworks tick 3 - triple",
       "trigger": {
         "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000004"
-      },
-      "actions": [
-        {
-          "type": "send",
-          "message": {
-            "body": {
-              "data": "[{\"type\":\"crackle\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0},{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":600}]"
-            },
-            "headers": {
-              "event": "fireworks"
-            }
-          },
-          "channelTarget": {
-            "type": "request-initiated",
-            "channelType": "sse",
-            "requestPattern": {
-              "urlPath": "/anniversary/events"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Fireworks tick 5 - triple",
-      "trigger": {
-        "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000005"
+        "stubId": "cccccccc-0000-4000-8000-000000000003"
       },
       "actions": [
         {
@@ -136,64 +82,10 @@
       ]
     },
     {
-      "name": "Fireworks tick 6 - four shells",
+      "name": "Fireworks tick 5 - the big THREE",
       "trigger": {
         "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000006"
-      },
-      "actions": [
-        {
-          "type": "send",
-          "message": {
-            "body": {
-              "data": "[{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0},{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":300},{\"type\":\"crackle\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":900},{\"type\":\"ring\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1400}]"
-            },
-            "headers": {
-              "event": "fireworks"
-            }
-          },
-          "channelTarget": {
-            "type": "request-initiated",
-            "channelType": "sse",
-            "requestPattern": {
-              "urlPath": "/anniversary/events"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Fireworks tick 7 - five shells",
-      "trigger": {
-        "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000007"
-      },
-      "actions": [
-        {
-          "type": "send",
-          "message": {
-            "body": {
-              "data": "[{\"type\":\"ring\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":0},{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":300},{\"type\":\"willow\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":600},{\"type\":\"crackle\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1000},{\"type\":\"peony\",\"x\":{{randomInt lower=10 upper=90}},\"y\":{{randomInt lower=55 upper=85}},\"hue\":{{randomInt lower=0 upper=360}},\"delay\":1400}]"
-            },
-            "headers": {
-              "event": "fireworks"
-            }
-          },
-          "channelTarget": {
-            "type": "request-initiated",
-            "channelType": "sse",
-            "requestPattern": {
-              "urlPath": "/anniversary/events"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Fireworks tick 9 - the big THREE",
-      "trigger": {
-        "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000009"
+        "stubId": "cccccccc-0000-4000-8000-000000000005"
       },
       "actions": [
         {
@@ -217,10 +109,10 @@
       ]
     },
     {
-      "name": "Fireworks tick 11",
+      "name": "Fireworks tick 7 - after the THREE",
       "trigger": {
         "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000011"
+        "stubId": "cccccccc-0000-4000-8000-000000000007"
       },
       "actions": [
         {
@@ -247,7 +139,7 @@
       "name": "Fireworks finale - keep them coming",
       "trigger": {
         "type": "http-stub",
-        "stubId": "cccccccc-0000-4000-8000-000000000012"
+        "stubId": "cccccccc-0000-4000-8000-000000000008"
       },
       "actions": [
         {
