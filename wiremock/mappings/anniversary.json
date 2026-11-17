@@ -22,7 +22,7 @@
       },
       "response": {
         "status": 200,
-        "openSseChannel": true
+        "openChannelOfType": "sse"
       }
     },
     {

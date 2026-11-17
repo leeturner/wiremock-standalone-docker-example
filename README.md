@@ -1,6 +1,6 @@
 # Example of running Wiremock Standalone in Docker
 
-This repo contains an example of using wiremock standalone running in docker. The example uses the `wiremock/wiremock:4.0.0-beta.41`
+This repo contains an example of using wiremock standalone running in docker. The example uses the `wiremock/wiremock:4.0.0-beta.44`
 image and maps the directories local to this repository the directories inside the image in the following way:
 
 * local mappings directory: `./wiremock/mappings` is mapped to docker mappings directory: `/home/wiremock/mappings`
@@ -47,7 +47,7 @@ extensions:                   response-template,webhook
 
 ### Docker Compose
 
-This repository contains a docker compose file to start up the wiremock `4.0.0-beta.41` container with the same directory 
+This repository contains a docker compose file to start up the wiremock `4.0.0-beta.44` container with the same directory 
 mappings as the `start.sh` script.  To use the docker compose file simply run the following command in the root
 directory of the repository:
 
