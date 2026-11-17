@@ -217,7 +217,7 @@
       ]
     },
     {
-      "name": "Fireworks tick 11 - Happy 3 Year Anniversary",
+      "name": "Fireworks tick 11",
       "trigger": {
         "type": "http-stub",
         "stubId": "cccccccc-0000-4000-8000-000000000011"
@@ -231,24 +231,6 @@
             },
             "headers": {
               "event": "fireworks"
-            }
-          },
-          "channelTarget": {
-            "type": "request-initiated",
-            "channelType": "sse",
-            "requestPattern": {
-              "urlPath": "/anniversary/events"
-            }
-          }
-        },
-        {
-          "type": "send",
-          "message": {
-            "body": {
-              "data": "{\"title\":\"Happy 3 Year Anniversary\"}"
-            },
-            "headers": {
-              "event": "banner"
             }
           },
           "channelTarget": {

@@ -166,7 +166,7 @@
       "newScenarioState": "Tick 11"
     },
     {
-      "name": "Fireworks tick 11 - Happy 3 Year Anniversary",
+      "name": "Fireworks tick 11",
       "id": "cccccccc-0000-4000-8000-000000000011",
       "request": {
         "method": "GET",

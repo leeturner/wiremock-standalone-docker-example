@@ -3,24 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Happy 3 Year Anniversary</title>
+  <title>Anniversary Fireworks</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap">
   <style>
     html, body { margin: 0; height: 100%; overflow: hidden; background: #03040a; }
     canvas { display: block; }
-    #banner {
-      position: fixed; left: 0; right: 0; bottom: 14vh;
-      text-align: center; font-family: 'Poppins', sans-serif; color: #fff;
-      opacity: 0; transform: scale(0.85); pointer-events: none;
-      transition: opacity 2s ease-out, transform 2.5s cubic-bezier(.2, .8, .2, 1);
-    }
-    #banner.show { opacity: 1; transform: scale(1); }
-    #banner h1 {
-      margin: 0; font-weight: 800; font-size: clamp(2.5rem, 7vw, 8rem); letter-spacing: 0.02em;
-      background: linear-gradient(90deg, #ffd166, #ff6b9d, #c77dff, #4cc9f0);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      filter: drop-shadow(0 0 18px rgba(255, 140, 220, 0.55));
-    }
   </style>
   <script type="importmap">
     { "imports": {
@@ -30,8 +17,6 @@
   </script>
 </head>
 <body>
-  <div id="banner"><h1></h1></div>
-
   <script type="module">
     import * as THREE from 'three';
     import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -260,8 +245,6 @@
     });
 
     // ---------- WireMock drives everything below ----------
-    const banner = document.getElementById('banner');
-
     // Every page load is a fresh take: rewind the scenario, then listen, then tick.
     await fetch('/__admin/scenarios/anniversary/state', {
       method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: '{"state":"Started"}' });
@@ -269,10 +252,6 @@
     const events = new EventSource('/anniversary/events');
     events.addEventListener('fireworks', e => {
       for (const s of JSON.parse(e.data)) setTimeout(() => launch(s), s.delay || 0);
-    });
-    events.addEventListener('banner', e => {
-      banner.querySelector('h1').textContent = JSON.parse(e.data).title;
-      banner.classList.add('show');
     });
 
     let ticking;
